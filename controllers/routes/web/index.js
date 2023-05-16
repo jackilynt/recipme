@@ -1,1 +1,0 @@
-// return a webpage contains get calls like login page show this page which return html pages
