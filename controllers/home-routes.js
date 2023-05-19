@@ -53,7 +53,7 @@ router.get('/gallery/:id', async (req, res) => {
   }
 });
 
-// GET one painting
+// GET one image
 router.get('/painting/:id', async (req, res) => {
   try {
     const dbPaintingData = await Painting.findByPk(req.params.id);
@@ -73,6 +73,24 @@ router.get('/login', (req, res) => {
     return;
   }
   res.render('login');
+});
+
+// Contact Us route
+router.get('/contactus', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+  res.render('contactus');
+});
+
+// About Us route
+router.get('/aboutus', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+  res.render('aboutus');
 });
 
 module.exports = router;
