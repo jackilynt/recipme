@@ -1,56 +1,58 @@
+/**
+ * Initial Server - By Brendan
+ */
+
+// Require our Express Server, and CORS for an extra pkg
+const express = require("express");
+const cors = require("cors");
+const { engine } = require('express-handlebars');
 const path = require('path');
-const express = require('express');
-const session = require('express-session');
-const exphbs = require('express-handlebars');
-// Initializes Sequelize with session store
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
+require('dotenv').config();
 
-const routes = require('./controllers');
-const sequelize = require('./config/connection');
-const helpers = require('./utils/helpers');
-
+// Initialize our Server as our App Object
 const app = express();
-const PORT = process.env.PORT || 3001;
 
-// Sets up session and connect to our Sequelize db
-const sess = {
-  secret: 'Super secret secret',
-  // Express session will use cookies by default, but we can specify options for those cookies by adding a cookies property to our session options.
-  cookie: {
-    // maxAge sets the maximum age for the cookie to be valid. Here, the cookie (and session) will expire after one hour. The time should be given in milliseconds.
-    maxAge: 60 * 60 * 1000,
-    // httpOnly tells express-session to only store session cookies when the protocol being used to connect to the server is HTTP.
-    httpOnly: true,
-    // secure tells express-session to only initialize session cookies when the protocol being used is HTTPS. Having this set to true, and running a server without encryption will result in the cookies not showing up in your developer console.
-    secure: false,
-    // sameSite tells express-session to only initialize session cookies when the referrer provided by the client matches the domain out server is hosted from.
-    sameSite: 'strict',
-  },
-  resave: false,
-  saveUninitialized: true,
-  // Sets up session store
-  store: new SequelizeStore({
-    db: sequelize,
-  }),
+// Setup our CORS variables/options for local host (until heroku)
+var corsOptions = {
+    origin: "http://localhost:3001"
 };
 
-app.use(session(sess));
+// Initial setup of Express App
+app.use(cors(corsOptions));                             // Uses CORS settings we declared above
+app.use(express.json());                                // Sets content-type to "application/json"
+app.use(express.urlencoded({ extended: true }));        // Parses content-type as application/x-www-form-urlencoded
 
-const hbs = exphbs.create({ helpers });
+// Add Sync() method for db
+const db = require("./models");
+db.sequelize.sync()
+    .then(() => {
+        console.log(`- Synced db.`);
+    })
+    .catch((err) => {
+        console.log(`- Failed to sync db: ${err.message}`);
+    })
 
-app.engine('handlebars', hbs.engine);
+// Setup Handlebars here
+app.use(express.static(path.join(__dirname, '/public')));
+app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
+app.set("views", "./views");
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.get('/', (req, res) => {
+    res.render('home');
+});
 
-app.use(routes);
+app.get('/login', (req, res) => {
+    res.render('login');
+});
 
-sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () =>
-    console.log(
-      `\nServer running on port ${PORT}. Visit http://localhost:${PORT} and create an account!`
-    )
-  );
+// Import Routes from /routes/
+require("./routes/recipe.route")(app);
+require("./routes/user.route")(app);
+
+
+// Setup our Port and listener
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`:: Server is running on port: ${PORT}! ::`);
 });
