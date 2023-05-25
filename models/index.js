@@ -1,13 +1,25 @@
-const User = require('./User');
-const Gallery = require('./Gallery');
-const Painting = require('./Painting');
+const dbConfig = require("../config/config.js");
+const Sequelize = require("sequelize");
 
-Gallery.hasMany(Painting, {
-  foreignKey: 'gallery_id',
+const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
+    host: dbConfig.HOST,
+    dialect: dbConfig.dialect,
+    operatorsAliases: false,
+
+    pool: {
+        max: dbConfig.pool.max,
+        min: dbConfig.pool.min,
+        acquire: dbConfig.pool.acquire,
+        idle: dbConfig.pool.idle
+    }
 });
 
-Painting.belongsTo(Gallery, {
-  foreignKey: 'gallery_id',
-});
+const db = {};
 
-module.exports = { User, Gallery, Painting };
+db.Sequelize = Sequelize;
+db.sequelize = sequelize;
+
+db.recipes = require("./recipe.model.js")(sequelize, Sequelize);
+db.users = require("./user.model.js")(sequelize, Sequelize);
+
+module.exports = db;
