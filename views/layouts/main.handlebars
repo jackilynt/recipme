@@ -4,14 +4,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Museum</title>
-  <link rel="stylesheet" type="text/css" href="/css/jass.css">
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <title>RecipMe</title>
+  <link rel="stylesheet" type="text/css" href='css/jass.css'>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
   <header>
-    <h1>Welcome to Recipme</h1>
+    <h1>Welcome to RecipMe!</h1>
   </header>
   <nav>
     <a href="/">Home</a>
@@ -20,20 +20,25 @@
     {{else}}
     <a href="/login">Login or Sign Up</a>
     {{/if}}
-    <a href="/">About Us</a>
-    <a href="/">Contact Us</a>
   </nav>
   <main>
     <aside>
-      <h2>Login or Sign Up to View Recipe Details!</h2>
+      <h2>Login or Sign Up to add your own recipes!</h2>
     </aside>
-    <div class="gallery">
+    <div class="recipe">
       {{{body}}}
     </div>
   </main>
   {{#if loggedIn}}
-  <script src="/js/logout.js"></script>
+  <script src="../public/js/logout.js"></script>
   {{/if}}
 </body>
 
 </html>
+
+<script src="js/login.js"></script>
+<script src="js/logout.js"></script>
+<script src="js/display.js"></script>
+
+{{!-- <script src="/javascript/signup.js"></script>
+<script src="/javascript/add-recipe.js"></script> --}}
