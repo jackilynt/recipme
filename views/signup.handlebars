@@ -2,12 +2,22 @@
     <div class="hero-body">
         <div class="container">
             <div class="columns is-centered">
-                <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+                <div class="column is-10-tablet is-8-desktop is-6-widescreen">
                     <form class="box">
                         <div class="field">
-                            <label class="label">Email or Username</label>
+                            <label class="label">Username</label>
                             <div class="control has-icons-left">
-                                <input type="email" placeholder="e.g. bobsmith@gmail.com" class="input username-input"
+                                <input type="email" placeholder="e.g. TechSmith210" class="input username-input"
+                                    required />
+                                <span class="icon is-small is-left">
+                                    <i class="fa fa-user"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Email</label>
+                            <div class="control has-icons-left">
+                                <input type="email" placeholder="e.g. techsmith210@gmail.com" class="input email-input"
                                     required />
                                 <span class="icon is-small is-left">
                                     <i class="fa fa-envelope"></i>
@@ -17,23 +27,17 @@
                         <div class="field">
                             <label class="label">Password</label>
                             <div class="control has-icons-left">
-                                <input type="password" placeholder="*******" class="input password-input" required />
+                                <input type="password" placeholder="******* (minimum 6 characters)"
+                                    class="input password-input" required />
                                 <span class="icon is-small is-left">
                                     <i class="fa fa-lock"></i>
                                 </span>
                             </div>
                         </div>
                         <div class="field is-grouped is-grouped-right">
-                            <p class="control">
-                                <a class="button is-info" href="/signup/">
-                                    Sign up
-                                </a>
-                            </p>
-                            <p class="control login-button">
-                                <a class="button is-success">
-                                    Login
-                                </a>
-                            </p>
+                            <button class="button is-success signup-button">
+                                Sign up
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -41,4 +45,4 @@
         </div>
     </div>
 </section>
-<script src="/js/login.js"></script>
+<script src="/js/signup.js"></script>

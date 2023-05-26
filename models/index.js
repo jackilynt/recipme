@@ -1,25 +1,37 @@
-const dbConfig = require("../config/config.js");
-const Sequelize = require("sequelize");
+// import models
+const User = require("./User");
+const Post = require("./Post");
+const Comment = require("./Comment");
 
-const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
-    host: dbConfig.HOST,
-    dialect: dbConfig.dialect,
-    operatorsAliases: false,
-
-    pool: {
-        max: dbConfig.pool.max,
-        min: dbConfig.pool.min,
-        acquire: dbConfig.pool.acquire,
-        idle: dbConfig.pool.idle
-    }
+Post.belongsTo(User, {
+    foreignKey: "author_id",
 });
 
-const db = {};
+User.hasMany(Post, {
+    foreignKey: "author_id",
+    onDelete: "CASCADE",
+});
 
-db.Sequelize = Sequelize;
-db.sequelize = sequelize;
+Comment.belongsTo(Post, {
+    foreignKey: "post_id",
+});
 
-db.recipes = require("./recipe.model.js")(sequelize, Sequelize);
-db.users = require("./user.model.js")(sequelize, Sequelize);
+Post.hasMany(Comment, {
+    foreignKey: "post_id",
+    onDelete: "CASCADE",
+});
 
-module.exports = db;
+Comment.belongsTo(User, {
+    foreignKey: "author_id",
+});
+
+User.hasMany(Comment, {
+    foreignKey: "author_id",
+    onDelete: "CASCADE",
+});
+
+module.exports = {
+    User,
+    Post,
+    Comment,
+};

@@ -1,58 +1,52 @@
-/**
- * Initial Server - By Brendan
- */
-
-// Require our Express Server, and CORS for an extra pkg
+// Dependencies
 const express = require("express");
-const cors = require("cors");
-const { engine } = require('express-handlebars');
-const path = require('path');
-require('dotenv').config();
+const expressHandlebars = require("express-handlebars");
+const session = require("express-session");
+const path = require("path");
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const sequelize = require("./config/connection");
+const controllers = require("./controllers");
+// Import the custom helper methods
+const helpers = require("./utils/helpers");
+// Incorporate the custom helper methods: ./utils/helpers.js
+const handlebars = expressHandlebars.create({ helpers });
 
-// Initialize our Server as our App Object
+// Sets up the Express App
 const app = express();
+const PORT = process.env.PORT || 3001;
 
-// Setup our CORS variables/options for local host (until heroku)
-var corsOptions = {
-    origin: "http://localhost:3001"
+// Set up sessions
+const sess = {
+    secret: "Secret key goes here",
+    cookie: {
+        // Stored in milliseconds (86,400,000 === 1 day)
+        //28800000 = 8 hours
+        maxAge: 28800000,
+    },
+    resave: false,
+    saveUninitialized: false,
+    store: new SequelizeStore({
+        db: sequelize,
+    }),
 };
+app.use(session(sess));
 
-// Initial setup of Express App
-app.use(cors(corsOptions));                             // Uses CORS settings we declared above
-app.use(express.json());                                // Sets content-type to "application/json"
-app.use(express.urlencoded({ extended: true }));        // Parses content-type as application/x-www-form-urlencoded
+//setup handlebars with express
+app.engine("handlebars", handlebars.engine);
+app.set("view engine", "handlebars");
 
-// Add Sync() method for db
-const db = require("./models");
-db.sequelize.sync()
-    .then(() => {
-        console.log(`- Synced db.`);
-    })
-    .catch((err) => {
-        console.log(`- Failed to sync db: ${err.message}`);
-    })
+//allow api to use json and url encoding
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+//set public folder
+app.use(express.static(path.join(__dirname, "public")));
 
-// Setup Handlebars here
-app.use(express.static(path.join(__dirname, '/public')));
-app.engine('handlebars', engine());
-app.set('view engine', 'handlebars');
-app.set("views", "./views");
-
-app.get('/', (req, res) => {
-    res.render('home');
-});
-
-app.get('/login', (req, res) => {
-    res.render('login');
-});
-
-// Import Routes from /routes/
-require("./routes/recipe.route")(app);
-require("./routes/user.route")(app);
+// Sets up the routes
+app.use(controllers);
 
 
-// Setup our Port and listener
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`:: Server is running on port: ${PORT}! ::`);
+// Starts the server to begin listening with sequelize for db connection
+//force start should be false if using 'npm run seed' to populate and create db as it will recreate tables each server reload
+sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, () => console.log("Now listening: " + PORT));
 });

@@ -1,0 +1,20 @@
+[
+    {
+        "username": "Jack Tan",
+        "email": "jack_test@gmail.com",
+        "password": "12345",
+        "isAdmin": "true"
+    },
+    {
+        "username": "Test Master",
+        "email": "test_test@gmail.com",
+        "password": "12345",
+        "isAdmin": "false"
+    },
+    {
+        "username": "Blog Tester",
+        "email": "blog_test@gmail.com",
+        "password": "12345",
+        "isAdmin": "false"
+    }
+]
