@@ -54,35 +54,20 @@
 const router = require("express").Router();
 const { Post } = require("../../models");
 
-// //create post
-// router.post("/", async (req, res) => {
-//     try {
-//         const dbPostData = await Post.create({
-//             title: req.body.title,
-//             content: req.body.content,
-//             author_id: req.body.author_id,
-//         });
-//         return res.status(200).json(dbPostData);
-//     } catch (err) {
-//         console.log(err);
-//         return res.status(500).json(err);
-//     }
-// });
-
 // Create a recipe post
 router.post("/", async (req, res) => {
-  try {
-    const dbRecipeData = await Recipe.create({
-      title: req.body.title,
-      ingredients: req.body.ingredients,
-      instructions: req.body.instructions,
-      author_id: req.body.authorId,
-    });
-    return res.status(200).json(dbRecipeData);
-  } catch (err) {
-    console.log(err);
-    return res.status(500).json(err);
-  }
+    try {
+        const dbRecipeData = await Recipe.create({
+            title: req.body.title,
+            ingredients: req.body.ingredients,
+            instructions: req.body.instructions,
+            author_id: req.body.authorId,
+        });
+        return res.status(200).json(dbRecipeData);
+    } catch (err) {
+        console.log(err);
+        return res.status(500).json(err);
+    }
 });
 
 //update post
@@ -109,6 +94,31 @@ router.delete("/:id", async (req, res) => {
             },
         });
         return res.status(200).json(deletePostData);
+    } catch (err) {
+        console.log(err);
+        return res.status(500).json(err);
+    }
+});
+
+// Get all recipe posts
+router.get("/", async (req, res) => {
+    try {
+        const posts = await Post.findAll();
+        return res.status(200).json(posts);
+    } catch (err) {
+        console.log(err);
+        return res.status(500).json(err);
+    }
+});
+
+// Get a single recipe post by ID
+router.get("/:id", async (req, res) => {
+    try {
+        const post = await Post.findByPk(req.params.id);
+        if (!post) {
+            return res.status(404).json({ message: "Post not found" });
+        }
+        return res.status(200).json(post);
     } catch (err) {
         console.log(err);
         return res.status(500).json(err);

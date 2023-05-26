@@ -8,6 +8,7 @@ const signupRoutes = require("./signup-routes");
 const logoutRoutes = require("./logout-routes");
 const dashboardRoutes = require("./dashboard-routes");
 const editRoutes = require("./edit-routes");
+const aboutRoutes = require("./about-routes");
 
 //use each of the routes files in the controllers folder
 router.use("/", indexRoutes);
@@ -18,5 +19,6 @@ router.use("/signup", signupRoutes);
 router.use("/logout", logoutRoutes);
 router.use("/dashboard", dashboardRoutes);
 router.use("/edit", editRoutes);
+router.use("/about", aboutRoutes);
 
 module.exports = router;
