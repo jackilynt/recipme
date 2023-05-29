@@ -1,6 +1,6 @@
 # Tech Blog - MVC, Node.js, Express.js, Handlebars.js, MySQL, Bulma
 
-An MVC full stack blog project. [Live Demo Here](https://mighty-earth-36141.herokuapp.com/).
+An MVC full stack blog project. [Live Demo Here](https://.herokuapp.com/).
 
 Seeded Admin account (Required to see dashboard functionality!) credentials are:
 
