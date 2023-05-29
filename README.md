@@ -109,4 +109,4 @@ Remember to replace author_id with the actual ID of the author who is creating t
 
 ## Future Development
 
-The PUT API will eventually a handlebar New Post button that did not manage to get included in this project
+The PUT API will eventually a handlebar New Post button and form to complete that did not manage to get included in this project
