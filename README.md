@@ -1,6 +1,6 @@
 # RecipeMe Blog - MVC, Node.js, Express.js, Handlebars.js, MySQL, Bulma
 
-Jackilyn Tan MVC full stack blog project. [Live Demo Here](https://.herokuapp.com/).
+Jackilyn Tan MVC full stack blog project. [Live Demo Here](https://arcane-garden-72205.herokuapp.com/).
 
 Seeded Admin account (Required to see dashboard functionality!) credentials are:
 
@@ -17,7 +17,8 @@ Example Seeded User Credentials (or create your own account):
 
 Features:
 
--   A homepage that showcases existing blog posts.
+-   A homepage that showcases existing blog posts.5yhyhxftx.nnjdjjn    b snj bn h
+-   A homepage that showcases existing blog posts.5yhyhxftx.nnjdjjn    b snj bn h
 -   A navigation bar serving express routes.
 -   A dashboard to create, read, update and delete blog posts for the admin.
 -   Individual pages for users to create accounts, login and logout using the site using authentication.
@@ -105,3 +106,7 @@ URL: http://localhost:3001/api/post/
 These instructions will guide you on how to make a POST request to create a new blog post with the provided data, and a GET request to retrieve all the existing blog posts.
 
 Remember to replace author_id with the actual ID of the author who is creating the blog post.
+
+## Future Development
+
+The PUT API will eventually a handlebar New Post button that did not manage to get included in this project
