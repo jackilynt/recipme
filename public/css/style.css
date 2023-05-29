@@ -44,3 +44,11 @@ nav.navbar {
         max-height: 3em;
     }
 }
+
+.about {
+    line-height: 32px;
+    /* within paragraph */
+    margin-bottom: 30px;
+    margin-top: 30px;
+    text-indent: 0px;
+}

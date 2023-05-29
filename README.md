@@ -1,6 +1,6 @@
-# Tech Blog - MVC, Node.js, Express.js, Handlebars.js, MySQL, Bulma
+# RecipeMe Blog - MVC, Node.js, Express.js, Handlebars.js, MySQL, Bulma
 
-An MVC full stack blog project. [Live Demo Here](https://.herokuapp.com/).
+Jackilyn Tan MVC full stack blog project. [Live Demo Here](https://.herokuapp.com/).
 
 Seeded Admin account (Required to see dashboard functionality!) credentials are:
 
@@ -50,52 +50,58 @@ This project uses the following technologies/libraries.
 
 ## Project Structure
 
-The structure was designed as rather modular for extensibility. This might be overboard for some but it is designed so this project can be used to kick off larger scale projects.
+The project structure is designed with modularity and extensibility in mind. Here's an overview of each folder and its purpose:
 
-The `assets` folder just contains screenshots for this README. The `config` folder is the Sequelize connection used throughout the server side and uses dotenv for connection properties. The controllers folder holds the routing logic for the API and web app calls. The db folder just contains a script to generate the empty database that is used in this project. The models folder contains each of the models used in the MVC model and is connected to the database via Sequelize. The public folder contains css, images and JavaScript used by the client side application served to the end user's browser. This includes API calls to the RESTful API Node.js Server. This is also where the `./config/apiConfig.js` is if external API calls are needed in the future. The seeds folder contains the JavaScript and JSON to create the database tables and seed them with test data. The utils folder has several server side helpers such as the authentication middleware and a DateTime formatter for rendering in the Handlebars.js views. The views folder contains the Handlebars.js main layout template, child templates, and partials to render in those children. Finally, `./server.js` is the main file to run the server.
+assets: Contains screenshots used for documentation purposes.
+config: Holds the Sequelize connection configuration for the server-side. It uses dotenv for managing connection properties.
+controllers: Contains the routing logic for the API and web app calls.
+db: Includes a script for generating an empty database used in the project.
+models: Contains the models used in the MVC architecture and connected to the database through Sequelize.
+public: Contains CSS, images, and JavaScript files used by the client-side application served to the end user's browser. It also includes API calls to the RESTful API Node.js Server. Additionally, it houses ./config/apiConfig.js if there is a need for external API calls in the future.
+seeds: Includes JavaScript and JSON files used to create database tables and populate them with test data.
+utils: Contains server-side helpers such as authentication middleware and a DateTime formatter for rendering in the Handlebars.js views.
+views: Contains the main Handlebars.js layout template, child templates, and partials for rendering content.
+server.js: The main file to run the server.
+This structure allows for scalability and provides a foundation for larger-scale projects.
 
 ## Installation
 
-First run `npm i` at the project root to get the node project dependencies and then update the file `.env.EXAMPLE` to `.env` and update it with your database credentials. If the database name `blog_db` is changed is also needs to be changed in the `./db/schema.sql` for database generation.
+To get started with the project, follow these steps, to will set up the project and have the application and API running locally on your machine:
 
-Then run the script to generate the `blog_db` database using the `./db/schema.sql`. Then use command `npm run seed` (notice the various commands available in `package.json`) to generate the tables and example user, post and comment data. Once this is complete use command `npm run dev` if you would like the server to use Nodemon and auto-restart when there are updates to code or `npm run start` for a normal server start.
+Navigate to the project root directory in your terminal and run the command npm i to install the necessary Node.js project dependencies.
 
-The application will be available by default at http://localhost:3001/. The RESTful API will also be available to be called independently at http://localhost:3001/api/user/, http://localhost:3001/api/post/, http://localhost:3001/api/comment/.
+Update the file named .env.EXAMPLE to .env and provide your database credentials in the .env file. If you change the database name from blog_db, make sure to update it in the ./db/schema.sql file as well, which is used for database generation.
+
+Run the script to generate the blog_db database using the ./db/schema.sql file. This will create the necessary database structure.
+
+Use the command npm run seed to generate the tables and populate them with example user, post, and comment data. You can explore other available commands in the package.json file.
+
+Once the seeding process is complete, you can start the server. Use the command npm run dev if you want the server to utilize Nodemon and automatically restart when there are code updates. Alternatively, use npm run start for a normal server start.
+
+The application will be available by default at http://localhost:3001/. You can access the RESTful API independently at endpoints like http://localhost:3001/api/user/, http://localhost:3001/api/post/, http://localhost:3001/api/comment/.
+
 
 ## Example API Call
 
-POST - http://localhost:3001/api/post/ - `{ "title": "Title of a Blog Post", "content": "Content of a blog post three times. Content of a blog post three times. Content of a blog post three times. ", "author_id": "1" }`
+POST Request - Create a Blog Post:
 
-## Schema Diagram
+Method: POST
+URL: http://localhost:3001/api/post/
+Request Body:
 
-![database schema](./assets/database-schema.png)
+{
+    "title": "Title of a Recipe Post",
+    "ingredients": "Content of a blog post three times. Content of a blog post three times. Content of a blog post three times.",
+    "instructions": "Content of a blog post three times. Content of a blog post three times. Content of a blog post three times.",
+    "author_id": "1"
+}
 
-## Screenshots
+Note: Replace author_id with the actual ID of the author who is creating the blog post.
+GET Request - Get All Blog Posts:
 
-### Homepage
+Method: GET
+URL: http://localhost:3001/api/post/
 
-![homepage screenshot](./assets/index.png)
+These instructions will guide you on how to make a POST request to create a new blog post with the provided data, and a GET request to retrieve all the existing blog posts.
 
-### Dashboard / CRUD for Posts
-
-![dashboard screenshot](./assets/dashboard.png)
-
-### Edit Post
-
-![edit screenshot](./assets/edit.png)
-
-### View Post and Comments
-
-![post screenshot](./assets/post.png)
-
-### Sign up
-
-![sign up screenshot](./assets/signup.png)
-
-### Login
-
-![login screenshot](./assets/login.png)
-
-### Logout
-
-# ![logout screenshot](./assets/logout.png)
+Remember to replace author_id with the actual ID of the author who is creating the blog post.
