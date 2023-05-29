@@ -71,6 +71,35 @@ module.exports = {
       minute: "numeric",
     });
   },
+  format_instructions: (instructions) => {
+    //console.log(typeof instructions);
+    //instructions = instructions.join("<br/>");
+
+    instructions = instructions + "";
+    instructions = instructions.replace("2. ", "<br/>2. ")
+    instructions = instructions.replace("3. ", "<br/>3. ")
+    instructions = instructions.replace("4. ", "<br/>4. ")
+    instructions = instructions.replace("5. ", "<br/>5. ")
+    instructions = instructions.replace("6. ", "<br/>6. ")
+    instructions = instructions.replace("7. ", "<br/>7. ")
+    instructions = instructions.replace("8. ", "<br/>8. ")
+    instructions = instructions.replace("9. ", "<br/>9. ")
+    instructions = instructions.replace("10. ", "<br/>10. ")
+    instructions = instructions.replace("11. ", "<br/>11. ")
+    instructions = instructions.replace("12. ", "<br/>12. ")
+    instructions = instructions.replace("13. ", "<br/>13. ")
+    instructions = instructions.replace("14. ", "<br/>14. ")
+    instructions = instructions.replace("15. ", "<br/>15. ")
+    instructions = instructions.replace("16. ", "<br/>16. ")
+    instructions = instructions.replace("17. ", "<br/>17. ")
+    instructions = instructions.replace("18. ", "<br/>18. ")
+    instructions = instructions.replace("19. ", "<br/>19. ")
+    instructions = instructions.replace("20. ", "<br/>20. ")
+    instructions = instructions.replace("11. ", "<br/>21. ")
+    // TODO: 7-20.
+
+    return instructions;
+  },
   // Cuts the length of blog content down for the front page/index
   format_summary: (content) => {
     if (!content) {

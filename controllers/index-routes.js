@@ -36,11 +36,14 @@ router.get("/", async (req, res) => {
                 currentPackage = [];
             }
         }
+        //var debugInfo = JSON.stringify(packagedPosts);
         //render to page and pass variables for handlebars to work with
+        
         res.render("index", {
             loggedIn: req.session.loggedIn,
             loggedInUserData: req.session.loggedInUserData,
             posts: packagedPosts,
+            //debugInfo
         });
     } catch (err) {
         res.status(500).json(err);

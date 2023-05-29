@@ -12,12 +12,19 @@
                 <div class="columns">
                     <div class="column is-8 is-offset-2">
                         <div class="content is-medium">
+                            <h1 class="title">{{postData.title}}</h1>
                             <h2 class="subtitle is-4">{{format_time
                                 postData.createdAt
                                 }}</h2>
-                            <h1 class="title">{{postData.title}}</h1>
+                            {{#if loggedIn}}
+                                <h3>Ingredients</h3>
+                                <p>{{postData.ingredients}}</p>
+                            {{/if}}
+                            {{#if loggedIn}}
+                                <h3>Instructions</h3>
+                            {{/if}}
+                            <p>{{{format_instructions postData.instructions}}}</p>
                             <h6>by {{postData.user.username}}</h6>
-                            <p>{{postData.content}}</p>
                         </div>
                     </div>
                 </div>

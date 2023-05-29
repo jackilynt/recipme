@@ -28,5 +28,41 @@
         "ingredients": "Apples, sugar, cinnamon, nutmeg, lemon juice, butter, pie crust",
         "instructions": "1. Preheat the oven to 425°F (220°C) and prepare the pie crust.2. Peel, core, and slice the apples. 3. In a bowl, combine the sliced apples, sugar, cinnamon, nutmeg, and lemon juice. Mix well. 4. Transfer the apple mixture into the pie crust, mounding it slightly. 5. Dot the top of the apples with butter. 6. Cover the pie with the second pie crust, sealing the edges. 7. Cut slits on the top crust to allow steam to escape. 8. Bake for about 45-50 minutes, or until the crust is golden and the apples are tender. 9. Remove from the oven and let it cool before serving.",
         "author_id": 1
+    },
+    {
+        "title": "Chicken Parmesan",
+        "ingredients": "Chicken breasts, breadcrumbs, Parmesan cheese, marinara sauce, mozzarella cheese, olive oil, salt, pepper",
+        "instructions": "1. Preheat the oven to 375°F (190°C) and lightly grease a baking dish. 2. Season the chicken breasts with salt and pepper. 3. In a shallow dish, combine breadcrumbs and grated Parmesan cheese. 4. Dip each chicken breast into the breadcrumb mixture, pressing gently to coat both sides. 5. Heat olive oil in a skillet over medium heat and cook the chicken breasts until golden brown on both sides. 6. Transfer the chicken breasts to the baking dish. 7. Pour marinara sauce over the chicken breasts. 8. Sprinkle shredded mozzarella cheese on top. 9. Bake for about 20-25 minutes, or until the cheese is melted and bubbly. 10. Serve with pasta or a side salad.",
+        "author_id": 1
+    },
+    {
+        "title": "Guacamole",
+        "ingredients": "Avocados, lime juice, red onion, tomatoes, cilantro, jalapeno, salt, pepper",
+        "instructions": "1. Cut the avocados in half, remove the pits, and scoop the flesh into a bowl. 2. Mash the avocados with a fork until desired consistency. 3. Stir in lime juice to prevent browning. 4. Finely chop red onion, tomatoes, cilantro, and jalapeno. 5. Add the chopped ingredients to the bowl with mashed avocados. 6. Season with salt and pepper to taste. 7. Mix well to combine all the ingredients. 8. Serve with tortilla chips or as a topping for tacos, nachos, or salads.",
+        "author_id": 1
+    },
+    {
+        "title": "Chocolate Chip Cookies",
+        "ingredients": "Butter, granulated sugar, brown sugar, eggs, vanilla extract, all-purpose flour, baking soda, salt, chocolate chips",
+        "instructions": "1. Preheat the oven to 375°F (190°C) and line a baking sheet with parchment paper. 2. In a large mixing bowl, cream together softened butter, granulated sugar, and brown sugar until light and fluffy. 3. Beat in eggs one at a time, followed by vanilla extract. 4. In a separate bowl, whisk together all-purpose flour, baking soda, and salt. 5. Gradually add the dry ingredients to the wet ingredients, mixing until just combined.\n6. Fold in chocolate chips. 7. Drop rounded tablespoonfuls of dough onto the prepared baking sheet. 8. Bake for 9-11 minutes, or until the edges are golden brown. 9. Allow the cookies to cool on the baking sheet for a few minutes before transferring them to a wire rack to cool completely.",
+        "author_id": 1
+    },
+    {
+        "title": "BBQ Ribs",
+        "ingredients": "Pork ribs, BBQ sauce, brown sugar, paprika, garlic powder, salt, black pepper",
+        "instructions": "1. Preheat the oven to 300°F (150°C). 2. In a small bowl, combine brown sugar, paprika, garlic powder, salt, and black pepper to make the dry rub. 3. Rub the dry rub all over the pork ribs, covering both sides. 4. Place the ribs on a baking sheet and cover tightly with aluminum foil. 5. Bake for 2.5 to 3 hours, or until the ribs are tender. 6. Remove the foil and brush BBQ sauce over the ribs. 7. Increase the oven temperature to 400°F (200°C) and bake for an additional 15 minutes, or until the sauce is sticky and caramelized.\n8. Let the ribs rest for a few minutes before serving.",
+        "author_id": 1
+    },
+    {
+        "title": "Caesar Salad",
+        "ingredients": "Romaine lettuce, croutons, Parmesan cheese, Caesar dressing, lemon juice, garlic, olive oil, salt, black pepper",
+        "instructions": "1. Wash and dry the romaine lettuce leaves. Tear them into bite-sized pieces. 2. In a large bowl, whisk together Caesar dressing, lemon juice, minced garlic, olive oil, salt, and black pepper to make the dressing. 3. Add the romaine lettuce to the bowl and toss to coat the leaves with the dressing. 4. Sprinkle croutons and grated Parmesan cheese over the salad. 5. Toss again gently to combine all the ingredients. 6. Serve immediately as a side dish or add grilled chicken or shrimp for a main course.",
+        "author_id": 1
+    },
+    {
+        "title": "Blueberry Muffins",
+        "ingredients": "All-purpose flour, granulated sugar, baking powder, salt, unsalted butter, milk, eggs, vanilla extract, fresh blueberries",
+        "instructions": "1. Preheat the oven to 375°F (190°C) and line a muffin tin with paper liners. 2. In a large mixing bowl, combine all-purpose flour, granulated sugar, baking powder, and salt. 3. Cut the unsalted butter into small pieces and add them to the dry ingredients. Use a pastry cutter or your fingers to blend the butter into the flour mixture until it resembles coarse crumbs. 4. In a separate bowl, whisk together milk, eggs, and vanilla extract. 5. Pour the wet ingredients into the dry ingredients and stir until just combined. 6. Gently fold in fresh blueberries. 7. Divide the batter evenly among the muffin cups, filling each about two-thirds full. 8. Bake for 18-20 minutes, or until a toothpick inserted into the center of a muffin comes out clean. 9. Allow the muffins to cool in the tin for a few minutes before transferring them to a wire rack to cool completely.",
+        "author_id": 1
     }
 ]
